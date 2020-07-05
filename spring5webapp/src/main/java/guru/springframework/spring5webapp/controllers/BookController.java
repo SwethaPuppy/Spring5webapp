@@ -22,13 +22,15 @@ public class BookController {
 	public BookController(BookRepository bookRepository) {
 		this.bookRepository = bookRepository;
 	}
-	
-	@RequestMapping(name="/books")
+	@RequestMapping("/books")
 	public String getBooks(Model model) {
+		System.out.println("Hello");
 		model.addAttribute("books", bookRepository.findAll());
 		return "books/list";
 	}
 	
-	
-	
-}
+	@RequestMapping(value = "/index")
+	   public String index() {
+	      return "index";
+	   }
+	}
